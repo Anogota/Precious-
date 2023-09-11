@@ -37,3 +37,11 @@ And we got a shell
 
 ![obraz](https://github.com/Anogota/Precious-/assets/143951834/38bc61b1-bfb2-4e63-a25b-9d8d1be07b96)
 
+Here is the answer for the question, and in config we can find some creds for henry
+BUNDLE_HTTPS://RUBYGEMS__ORG/: "henry:Q3c1AqGHtoI0aXAYFH"
+
+6.Submit the flag located in the henry user's home directory.
+here is the flag for henry:
+
+![obraz](https://github.com/Anogota/Precious-/assets/143951834/22e16674-d01a-46f2-bf59-8e961f1ac625)
+
